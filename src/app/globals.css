@@ -1,26 +1,328 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ------------------------------------------------------------------
+   Tokens do Design System Finger (tokens/*.css), expostos ao Tailwind v4.
+   Os nomes de cor preservam os do DS para que as classes dos .prompt.md
+   (bg-primary-flame, text-dark-eerie, bg-neutral-floral...) funcionem.
+------------------------------------------------------------------- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-*: initial;
+  --color-primary-flame: #c44e2a;
+  --color-neutral-floral: #fffcf2;
+  --color-neutral-timberwolf: #ccc5b9;
+  --color-dark-olive: #403d39;
+  --color-dark-eerie: #252422;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-heading: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-source-serif), Georgia, "Times New Roman", serif;
+  --font-accent: var(--font-ephesis), cursive;
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.08em;
+
+  --radius-*: initial;
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+
+  --shadow-*: initial;
+  --shadow-sm: 0 1px 2px 0 rgba(37, 36, 34, 0.08);
+  --shadow-md: 0 4px 12px -2px rgba(37, 36, 34, 0.1), 0 2px 4px -2px rgba(37, 36, 34, 0.06);
+  --shadow-lg: 0 16px 40px -12px rgba(37, 36, 34, 0.18);
+
+  --ease-*: initial;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --spacing-section: clamp(4rem, 10vw, 8rem);
+  --spacing-gutter: clamp(1.25rem, 5vw, 4rem);
+  --container-container: 80rem;
 }
 
-@media (prefers-color-scheme: dark) {
+:root {
+  /* Aliases semânticos do DS (tokens/colors.css) */
+  --surface-page: var(--color-neutral-floral);
+  --surface-muted: rgba(204, 197, 185, 0.3);
+  --surface-inverse: var(--color-dark-eerie);
+  --border-default: var(--color-neutral-timberwolf);
+  --border-strong: var(--color-dark-olive);
+  --text-primary: var(--color-dark-eerie);
+  --text-secondary: var(--color-dark-olive);
+  --text-inverse: var(--color-neutral-floral);
+  --focus-ring: var(--color-primary-flame);
+
+  /* DS fixa o header em 80 px; no celular (não definido pelo DS) usamos 64 px. */
+  --header-h: 4rem;
+
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+  --duration-slow: 700ms;
+}
+
+@media (min-width: 48rem) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --header-h: 5rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    background: var(--surface-page);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: var(--leading-relaxed);
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: var(--color-primary-flame);
+    color: var(--color-neutral-floral);
+  }
+
+  /* Foco visível: o DS define --focus-ring mas não o aplica em lugar nenhum. */
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Flame sobre Eerie dá 3,33:1; em superfícies escuras o anel de foco é Floral. */
+  .on-dark :focus-visible,
+  .on-dark:focus-visible {
+    outline-color: var(--color-neutral-floral);
+  }
+}
+
+@layer components {
+  /* Link com sublinhado de 1px que cresce da esquerda (readme do DS, "Hover") */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+    transition:
+      background-size var(--duration-base) var(--ease-out),
+      color var(--duration-fast) var(--ease-out);
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible,
+  .link-underline[aria-current="page"] {
+    background-size: 100% 1px;
+  }
+
+  /* Seta do <select> (chevron-down do Lucide, traço 1.5, em Olive) */
+  .select-chevron {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23403D39' stroke-opacity='.7' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-position: right 1rem center;
+    background-repeat: no-repeat;
+  }
+
+  /* Entrada dos cartões ao trocar o filtro do portfólio */
+  .grid-item-in {
+    animation: hero-rise var(--duration-base) var(--ease-out) both;
+  }
+
+  /* Gradiente de proteção sobre fotografia full-bleed (Hero.jsx do DS) */
+  .photo-scrim {
+    background: linear-gradient(180deg, rgba(37, 36, 34, 0.05) 30%, rgba(37, 36, 34, 0.78) 100%);
+  }
+
+  /* Variante do hero: o gradiente do DS só protege o rodapé e foi pensado para interiores quentes.
+     Aqui o texto ocupa mais da metade da altura (no celular, sobre foto aérea clara), então a
+     proteção começa mais cedo. Mesma cor (Eerie), para o título e o parágrafo passarem em AA. */
+  .hero-scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(37, 36, 34, 0.2) 0%,
+      rgba(37, 36, 34, 0.35) 30%,
+      rgba(37, 36, 34, 0.72) 58%,
+      rgba(37, 36, 34, 0.9) 100%
+    );
+  }
+  /* No desktop o texto fica à esquerda: a proteção vem da lateral e a foto respira à direita. */
+  @media (min-width: 64rem) {
+    .hero-scrim {
+      background:
+        linear-gradient(90deg, rgba(37, 36, 34, 0.78) 0%, rgba(37, 36, 34, 0.45) 45%, rgba(37, 36, 34, 0.08) 80%),
+        linear-gradient(180deg, rgba(37, 36, 34, 0) 55%, rgba(37, 36, 34, 0.55) 100%);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Movimento. Nada nasce oculto: as revelações por scroll são aplicadas pelo GSAP apenas ao que
+   está abaixo da dobra quando ele assume (ver MotionProvider). Aqui ficam só as entradas em CSS.
+------------------------------------------------------------------- */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-drift {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-rise {
+    animation: hero-rise var(--duration-slow) var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 110ms + 120ms);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Faixa contínua (marquee). Parada com movimento reduzido. */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track {
+    animation: marquee 40s linear infinite;
+  }
+}
+
+/* Menu mobile (<dialog> modal em tela cheia) */
+/* A classe é posta via JS ao abrir um <dialog>. (html:has(dialog[open]) faria o mesmo, mas :has()
+   na raiz obriga o navegador a reavaliar estilos a cada mutação do DOM.) */
+html.dialog-open {
+  overflow: hidden;
+}
+.menu-dialog {
+  opacity: 0;
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    overlay var(--duration-base) allow-discrete,
+    display var(--duration-base) allow-discrete;
+}
+.menu-dialog[open] {
+  opacity: 1;
+}
+@starting-style {
+  .menu-dialog[open] {
+    opacity: 0;
+  }
+}
+.menu-dialog[open] .menu-item {
+  animation: hero-rise var(--duration-slow) var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 60ms + 80ms);
+}
+
+/* Cursor seguidor (só mouse, ≥ 1024 px; o cursor nativo continua). Quadrado de raio 6 px, como o
+   restante do DS — nada de círculos/pílulas. A posição (transform) é do GSAP; a escala fica no ::before. */
+.site-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 80;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: difference;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+.site-cursor[data-visible="true"] {
+  opacity: 1;
+}
+.site-cursor::before {
+  content: "";
+  position: absolute;
+  top: -1.125rem;
+  left: -1.125rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--color-neutral-floral);
+  border-radius: var(--radius-md);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+.site-cursor[data-active="true"]::before {
+  transform: scale(1.6) rotate(45deg);
+}
+.site-cursor::after {
+  content: attr(data-label);
+  position: absolute;
+  top: 1.75rem;
+  left: 1.75rem;
+  color: var(--color-neutral-floral);
+  font-family: var(--font-heading);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Sem movimento, os trilhos altos da cena 3D não fazem sentido: tudo volta à altura natural. */
+@media (prefers-reduced-motion: reduce) {
+  [data-furniture-track] {
+    height: auto !important;
+  }
+  [data-furniture-track] > * {
+    position: static !important;
+  }
+  [data-furniture-track="section"] > * {
+    height: auto !important;
+    padding-block: var(--spacing-section) !important;
+  }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
 }

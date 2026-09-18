@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Artefatos e diagnósticos locais do pipeline de mídia, não código do site.
+    "scripts/media/_out/**",
   ]),
 ]);
 

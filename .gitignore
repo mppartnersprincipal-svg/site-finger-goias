@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# saídas intermediárias do pipeline de mídia (masters de vídeo, stills, folhas de contato)
+/scripts/media/_out
+.gstack/
