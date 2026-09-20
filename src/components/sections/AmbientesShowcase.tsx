@@ -5,7 +5,9 @@ import { Button } from "@/components/ui/Button";
 import { Container, SectionHeading } from "@/components/ui/primitives";
 import type { MediaId } from "@/lib/media";
 
-// Cards de destaque da copy (Home, seção 2).
+// Cards de destaque da Home, seção 2. Os três primeiros (título e texto) vêm da copy oficial; Área
+// Gourmet e Banheiros foram acrescentados a pedido do cliente, com texto nosso no mesmo tom — a
+// aprovar. Todos apontam para um filtro que tem fotos em /ambientes.
 const cards: { title: string; text: string; href: string; image: MediaId }[] = [
   {
     title: "Cozinhas",
@@ -24,6 +26,18 @@ const cards: { title: string; text: string; href: string; image: MediaId }[] = [
     text: "Espaços integrados que convidam ao conforto diário.",
     href: "/ambientes?c=salas",
     image: "n23-sala-5068",
+  },
+  {
+    title: "Área Gourmet",
+    text: "Receber bem começa por um espaço pensado para cozinhar, servir e conversar.",
+    href: "/ambientes?c=area-gourmet",
+    image: "sa-gourmet-7854",
+  },
+  {
+    title: "Banheiros",
+    text: "Marcenaria precisa e iluminação suave para começar e terminar o dia com calma.",
+    href: "/ambientes?c=banheiros",
+    image: "sa-banheiro-7901",
   },
 ];
 

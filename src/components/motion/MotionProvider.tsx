@@ -128,7 +128,14 @@ export function MotionProvider() {
             gsap.utils.toArray<HTMLElement>("[data-hgallery]").forEach((wrap) => {
               const track = wrap.querySelector<HTMLElement>("[data-hgallery-track]");
               if (!track) return;
-              const distance = () => Math.max(0, track.scrollWidth - window.innerWidth);
+              // Até a borda direita do último card + a margem lateral da página. (scrollWidth não serve:
+              // não inclui o padding final de um contêiner flex, e o último card terminava colado na borda.)
+              const distance = () => {
+                const last = track.lastElementChild;
+                if (!last) return 0;
+                const content = last.getBoundingClientRect().right - track.getBoundingClientRect().left;
+                return Math.max(0, content + parseFloat(getComputedStyle(track).paddingRight) - window.innerWidth);
+              };
               if (distance() < 80) return;
               gsap.set(track, { overflowX: "visible" });
               gsap.to(track, {

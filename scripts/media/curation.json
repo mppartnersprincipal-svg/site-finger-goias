@@ -66,6 +66,7 @@
     { "id": "sr-detalhe-3935", "src": "SR/IMG_3935.JPG", "grade": { "saturation": 0.92 }, "alt": "Detalhe de banquetas com assento em couro caramelo junto à ilha da cozinha" },
     { "id": "sr-sala-3971", "src": "SR/IMG_3971.JPG", "grade": { "saturation": 0.92 }, "alt": "Estar do showroom com sofá curvo claro, mesas laterais e adega ao fundo" },
 
+    { "id": "sr-mesa-3945", "src": "SR/IMG_3945.JPG", "widths": [640, 960, 1280], "grade": { "saturation": 0.92 }, "alt": "Mesa com seis cadeiras no showroom Finger, diante da cozinha em exposição" },
     { "id": "fabrica-drone", "src": "STILL/fabrica-drone.png", "widths": [640, 960], "quality": [42, 72], "alt": "Vista aérea da fábrica da Finger em Sarandi, Rio Grande do Sul, cercada por campos" },
     { "id": "fabrica-cnc", "src": "STILL/fabrica-cnc.png", "widths": [640, 960], "alt": "Centro de usinagem CNC em operação na fábrica da Finger" },
     { "id": "fabrica-mao", "src": "STILL/fabrica-mao.png", "widths": [640, 960], "alt": "Mão conferindo o acabamento de uma peça usinada" },
