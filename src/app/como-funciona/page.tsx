@@ -33,9 +33,15 @@ const steps: Step[] = [
     number: "01",
     title: "Briefing & Escuta Empática",
     text: "Ouvimos suas necessidades práticas e seus desejos estéticos para entender a história que seu ambiente deve contar.",
+    // A mesa do showroom, onde a conversa acontece, com a planta aberta por cima como folha de projeto.
     visual: (
-      <div className="rounded-md border border-neutral-timberwolf bg-neutral-floral p-6 shadow-sm md:p-10">
-        <FloorPlan className="w-full" />
+      <div className="relative pb-24 md:pb-28">
+        <div data-parallax className="aspect-[4/3] w-[86%] overflow-hidden rounded-md shadow-lg">
+          <Picture id="sr-mesa-3945" sizes="(min-width: 1024px) 50vw, 100vw" />
+        </div>
+        <div className="absolute right-0 bottom-0 w-[68%] rounded-md border border-neutral-timberwolf bg-neutral-floral p-4 shadow-md md:w-[56%] md:p-6">
+          <FloorPlan className="w-full" />
+        </div>
       </div>
     ),
   },

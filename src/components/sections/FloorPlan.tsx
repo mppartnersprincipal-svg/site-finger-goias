@@ -1,6 +1,6 @@
 /**
- * Planta baixa ilustrativa do passo "Briefing". Substitui, de forma gráfica, as fotos de
- * atendimento que ainda não existem no acervo. Cada traço tem data-draw para a animação de
+ * Planta baixa ilustrativa do passo "Briefing". Acompanha a foto da mesa do showroom enquanto
+ * não há fotos de atendimento no acervo. Os traços contínuos têm data-draw para a animação de
  * desenho (DrawSVG) — sem JS, a planta aparece completa.
  */
 export function FloorPlan({ className }: { className?: string }) {
@@ -31,11 +31,11 @@ export function FloorPlan({ className }: { className?: string }) {
         <path data-draw d="M248 254H372V272H248ZM279 254V272M310 254V272M341 254V272" />
         <path data-draw d="M248 178H318V196H248Z" />
       </g>
-      {/* portas e tapete */}
+      {/* portas e tapete — sem data-draw: o DrawSVG lê o tracejado como trecho já desenhado e o traço some */}
       <g stroke="#403D39" strokeOpacity=".6" strokeWidth="1" strokeDasharray="3 3">
-        <path data-draw d="M240 196A46 46 0 0 0 194 150" />
-        <path data-draw d="M330 170A36 36 0 0 1 366 206" />
-        <path data-draw d="M40 200H186V268H40Z" />
+        <path d="M240 196A46 46 0 0 0 194 150" />
+        <path d="M330 170A36 36 0 0 1 366 206" />
+        <path d="M40 200H186V268H40Z" />
       </g>
       {/* cotas */}
       <g stroke="#C44E2A" strokeWidth="1.25">

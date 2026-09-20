@@ -2343,6 +2343,42 @@
       ]
     }
   },
+  "sr-mesa-3945": {
+    "width": 5184,
+    "height": 3456,
+    "alt": "Mesa com seis cadeiras no showroom Finger, diante da cozinha em exposição",
+    "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQAgCdASoQAAsAA4BaJZgCdAEQFqmehNNQAPlfZoktQTZkcfc2e5KRsyOtmZwi54YigZ4r42uCZ3ur+bsUs71x3Xj9iRKY9Jm0+KCSG2kZOQue4ya7nwlnR++QBNK272aMTNzM8UGRNnwgAAA=",
+    "sources": {
+      "avif": [
+        {
+          "w": 640,
+          "src": "/media/img/sr-mesa-3945-640.5c94ab65.avif"
+        },
+        {
+          "w": 960,
+          "src": "/media/img/sr-mesa-3945-960.5c94ab65.avif"
+        },
+        {
+          "w": 1280,
+          "src": "/media/img/sr-mesa-3945-1280.5c94ab65.avif"
+        }
+      ],
+      "webp": [
+        {
+          "w": 640,
+          "src": "/media/img/sr-mesa-3945-640.5c94ab65.webp"
+        },
+        {
+          "w": 960,
+          "src": "/media/img/sr-mesa-3945-960.5c94ab65.webp"
+        },
+        {
+          "w": 1280,
+          "src": "/media/img/sr-mesa-3945-1280.5c94ab65.webp"
+        }
+      ]
+    }
+  },
   "fabrica-drone": {
     "width": 1080,
     "height": 1720,
