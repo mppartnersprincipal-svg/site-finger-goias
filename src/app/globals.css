@@ -12,6 +12,8 @@
   --color-neutral-timberwolf: #ccc5b9;
   --color-dark-olive: #403d39;
   --color-dark-eerie: #252422;
+  /* Única cor fora da paleta do DS: verde oficial do WhatsApp, só no botão flutuante (pedido do cliente). */
+  --color-brand-whatsapp: #25d366;
   --color-transparent: transparent;
   --color-current: currentColor;
 

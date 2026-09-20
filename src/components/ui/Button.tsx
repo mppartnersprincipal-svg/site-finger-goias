@@ -7,7 +7,7 @@ type Variant = "primary" | "secondary" | "ghost" | "inverse";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "group inline-flex items-center justify-center gap-2 rounded-md border font-heading font-semibold leading-none tracking-[0.01em] whitespace-nowrap max-sm:text-center max-sm:leading-snug max-sm:whitespace-normal transition-[background-color,color,border-color,transform] duration-180 ease-out active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50";
+  "group inline-flex items-center justify-center gap-2 rounded-full border font-heading font-semibold leading-none tracking-[0.01em] whitespace-nowrap max-sm:text-center max-sm:leading-snug max-sm:whitespace-normal transition-[background-color,color,border-color,transform] duration-180 ease-out active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
   primary: "border-transparent bg-primary-flame text-neutral-floral hover:bg-dark-olive",
@@ -29,6 +29,7 @@ type ButtonProps = CommonProps &
 
 export function Button({ variant = "primary", size = "md", className, children, ...rest }: ButtonProps) {
   const isGhost = variant === "ghost";
+  // Forma arredondada (pílula) em todos os botões: pedido do cliente, sobrepõe o "sem pílulas" do DS.
   // O ghost é um link textual: ignora padding/altura, mas mantém alvo de toque de 44 px.
   const classes = cn(base, variants[variant], isGhost ? "min-h-11 px-0 py-1 text-sm" : sizes[size], className);
   const content = (

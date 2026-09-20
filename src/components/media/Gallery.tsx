@@ -47,7 +47,7 @@ export function Gallery({ photos }: { photos: GalleryPhoto[] }) {
 
   const current = index === null ? null : photos[index];
   const navButton =
-    "on-dark inline-flex size-11 items-center justify-center rounded-md border border-neutral-floral/40 text-neutral-floral transition-colors duration-180 ease-out hover:bg-neutral-floral hover:text-dark-eerie";
+    "on-dark inline-flex size-11 items-center justify-center rounded-full border border-neutral-floral/40 text-neutral-floral transition-colors duration-180 ease-out hover:bg-neutral-floral hover:text-dark-eerie";
 
   return (
     <>

@@ -71,7 +71,7 @@ export function Navbar() {
               dialogRef.current?.showModal();
               document.documentElement.classList.add("dialog-open");
             }}
-            className="-mr-2 inline-flex size-11 items-center justify-center rounded-md text-dark-eerie transition-colors duration-180 ease-out hover:bg-neutral-timberwolf/20 lg:hidden"
+            className="-mr-2 inline-flex size-11 items-center justify-center rounded-full text-dark-eerie transition-colors duration-180 ease-out hover:bg-neutral-timberwolf/20 lg:hidden"
           >
             <Menu aria-hidden size={24} strokeWidth={1.5} />
           </button>
@@ -99,7 +99,7 @@ export function Navbar() {
               type="button"
               aria-label="Fechar menu"
               onClick={() => dialogRef.current?.close()}
-              className="-mr-2 inline-flex size-11 items-center justify-center rounded-md transition-colors duration-180 ease-out hover:bg-neutral-timberwolf/20"
+              className="-mr-2 inline-flex size-11 items-center justify-center rounded-full transition-colors duration-180 ease-out hover:bg-neutral-timberwolf/20"
             >
               <X aria-hidden size={24} strokeWidth={1.5} />
             </button>

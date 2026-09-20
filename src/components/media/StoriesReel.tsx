@@ -73,7 +73,7 @@ export function StoriesReel({ items }: { items: ReelItem[] }) {
               >
                 <span
                   className={cn(
-                    "inline-flex size-11 items-center justify-center rounded-md border border-neutral-floral/70 bg-dark-eerie/40 backdrop-blur-[6px] transition-[background-color,opacity] duration-180 ease-out group-hover:bg-neutral-floral group-hover:text-dark-eerie",
+                    "inline-flex size-11 items-center justify-center rounded-full border border-neutral-floral/70 bg-dark-eerie/40 backdrop-blur-[6px] transition-[background-color,opacity] duration-180 ease-out group-hover:bg-neutral-floral group-hover:text-dark-eerie",
                     isActive && "opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100",
                   )}
                 >

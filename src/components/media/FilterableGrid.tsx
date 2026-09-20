@@ -68,7 +68,7 @@ function Grid({ items, filters, active, animateItems = false, onSelect }: Props 
             aria-pressed={active === filter.id}
             onClick={() => onSelect?.(filter.id)}
             className={cn(
-              "min-h-11 shrink-0 rounded-md border px-5 font-heading text-sm font-semibold transition-colors duration-180 ease-out",
+              "min-h-11 shrink-0 rounded-full border px-5 font-heading text-sm font-semibold transition-colors duration-180 ease-out",
               active === filter.id
                 ? "border-dark-eerie bg-dark-eerie text-neutral-floral"
                 : "border-neutral-timberwolf text-dark-eerie hover:bg-neutral-timberwolf/20",

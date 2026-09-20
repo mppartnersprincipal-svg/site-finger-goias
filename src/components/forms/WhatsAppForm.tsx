@@ -120,7 +120,7 @@ export function WhatsAppForm({ intro, phone, fields, submitLabel, tone = "light"
                   <label
                     key={option}
                     className={cn(
-                      "inline-flex min-h-11 cursor-pointer items-center rounded-md border px-4 font-heading text-sm font-semibold transition-colors duration-180 ease-out has-focus-visible:outline-2 has-focus-visible:outline-offset-3",
+                      "inline-flex min-h-11 cursor-pointer items-center rounded-full border px-4 font-heading text-sm font-semibold transition-colors duration-180 ease-out has-focus-visible:outline-2 has-focus-visible:outline-offset-3",
                       dark
                         ? "border-dark-olive has-checked:border-neutral-floral has-checked:bg-neutral-floral has-checked:text-dark-eerie has-focus-visible:outline-neutral-floral hover:border-neutral-timberwolf"
                         : "border-neutral-timberwolf has-checked:border-dark-eerie has-checked:bg-dark-eerie has-checked:text-neutral-floral has-focus-visible:outline-primary-flame hover:bg-neutral-timberwolf/20",
