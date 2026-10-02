@@ -12,8 +12,7 @@
    uso comercial).
 4. **Política de privacidade**: o texto descreve o funcionamento real do site, mas precisa de revisão
    do responsável jurídico/LGPD (controlador, encarregado, contato).
-5. **Aprovação dos 3 artigos do blog** e das correções feitas na copy ("a convivência",
-   "Arquiteto", remoção dos marcadores `[n]`).
+5. **Aprovação das correções feitas na copy** ("a convivência", remoção dos marcadores `[n]`).
 
 Em 18/09/2026, o responsável confirmou que ainda não tem WhatsApp definitivo, horário do showroom
 e domínio. Esses dados continuam pendentes; nenhuma publicação foi realizada nesta revisão.

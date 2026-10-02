@@ -231,6 +231,34 @@
       ]
     }
   },
+  "luiz-poster": {
+    "width": 720,
+    "height": 1280,
+    "alt": "Luiz Feresin, proprietário da Finger Goiás, sentado em uma banqueta diante de uma cozinha planejada",
+    "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAABwBACdASoQABwAPu1iqU2ppaOiMAgBMB2JagCdMoADZvTpysK6Vod2Hg/FAAD9+1LH8SlBZqLZ7kVEAxeEomwYhwGE93kwI8OUk7erPJyuMvoxNo/5jGHfxVX/e5ERelHw1sJ0sRQ0HlBpK6IStimo1+/CEm1y1v1z0XNfSODAc4Zt930VjTvuIGSzPQEBAD70NstZF1AvG3DdxPfnCfQHYGmumgAA",
+    "sources": {
+      "avif": [
+        {
+          "w": 480,
+          "src": "/media/img/luiz-poster-480.16f9a4e5.avif"
+        },
+        {
+          "w": 720,
+          "src": "/media/img/luiz-poster-720.16f9a4e5.avif"
+        }
+      ],
+      "webp": [
+        {
+          "w": 480,
+          "src": "/media/img/luiz-poster-480.16f9a4e5.webp"
+        },
+        {
+          "w": 720,
+          "src": "/media/img/luiz-poster-720.16f9a4e5.webp"
+        }
+      ]
+    }
+  },
   "sa-gourmet-7844": {
     "width": 6712,
     "height": 4475,

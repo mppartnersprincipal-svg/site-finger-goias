@@ -3,13 +3,13 @@
 import { Play } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
-type Props = { src: string; title: string; poster: ReactNode };
+type Props = { src: string; title: string; poster: ReactNode; className?: string };
 
 /** Vídeo com som, sob demanda: nada é baixado até o clique; depois, controles nativos. */
-export function VideoPlayer({ src, title, poster }: Props) {
+export function VideoPlayer({ src, title, poster, className = "aspect-video" }: Props) {
   const [started, setStarted] = useState(false);
   return (
-    <div className="relative aspect-video overflow-hidden rounded-md bg-dark-eerie shadow-lg">
+    <div className={`relative overflow-hidden rounded-md bg-dark-eerie shadow-lg ${className}`}>
       {started ? (
         <video src={src} controls autoPlay playsInline aria-label={title} className="h-full w-full" />
       ) : (

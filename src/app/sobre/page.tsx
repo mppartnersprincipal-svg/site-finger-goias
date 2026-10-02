@@ -69,8 +69,25 @@ export default function SobrePage() {
         </Container>
       </section>
 
+      {/* Depoimento do Luiz, da Finger Goiás (vertical, sob demanda) */}
+      <Section tone="muted" aria-labelledby="luiz-titulo">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_22rem] lg:gap-16">
+          <SectionHeading
+            eyebrow="Finger Goiás"
+            title={<span id="luiz-titulo">Quem está à frente do showroom em Goiânia</span>}
+            lead="Luiz Feresin, proprietário da Finger Goiás, conta como cuidamos de cada projeto, do primeiro encontro à instalação."
+          />
+          <VideoPlayer
+            src="/media/video/luiz-finger-goias.mp4"
+            title="Conheça o Luiz, da Finger Goiás"
+            className="mx-auto aspect-[9/16] w-full max-w-[22rem]"
+            poster={<Picture id="luiz-poster" alt="" sizes="(min-width: 640px) 352px, 100vw" className="absolute inset-0" />}
+          />
+        </div>
+      </Section>
+
       {/* Vídeo institucional, sob demanda */}
-      <Section tone="muted" aria-labelledby="video-titulo">
+      <Section aria-labelledby="video-titulo">
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
           <SectionHeading
             eyebrow="Por dentro da fábrica"

@@ -9,8 +9,8 @@ tarefa exigir. Estado atual, decisões do cliente e pendências estão na memór
 ## O que é
 
 Site institucional do showroom **Finger Goiás** (móveis planejados; fábrica em Sarandi/RS desde 1978).
-Next.js 16 App Router, **21 rotas 100% estáticas**, TypeScript, Tailwind v4, GSAP + Lenis, cena 3D em
-three.js puro, blog em MDX. Leads **só por WhatsApp** (sem backend). Hospedagem alvo: Vercel.
+Next.js 16 App Router, **16 rotas 100% estáticas**, TypeScript, Tailwind v4, GSAP + Lenis, cena 3D em
+three.js puro. Leads **só por WhatsApp** (sem backend). Hospedagem alvo: Vercel.
 Repo: github.com/mppartnersprincipal-svg/site-finger-goias (branch `main`). Ainda sem deploy.
 
 Fontes de verdade, fora deste repo (pasta pai `../`): `Copy do Site.txt` manda em **textos, menu e
@@ -22,7 +22,6 @@ CTAs**; `Design System/` manda no **visual**. Em conflito entre os dois, vale es
 |---|---|
 | Telefone/WhatsApp, endereço, menu, CTA, redes | `src/content/site.ts` |
 | Portfólio (projetos, fotos, categorias) | `src/content/projects.ts` |
-| Artigos do blog | `src/content/blog/*.mdx` + 1 linha em `registry.ts` |
 | Tokens do DS (cores, fontes, raios, easing) | `src/app/globals.css` (`@theme`) |
 | Botão, Badge, Eyebrow, Section, Accent (Ephesis) | `src/components/ui/` |
 | Navbar, menu mobile, Footer, botão WhatsApp | `src/components/layout/` |

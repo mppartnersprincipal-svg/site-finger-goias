@@ -80,8 +80,8 @@ export function Partners() {
             title={<span id="parceiros-titulo">Aliados estratégicos na criação de projetos de alto padrão</span>}
             lead="Unimos nossa precisão de fabricação ao talento dos melhores arquitetos e designers para dar vida a espaços verdadeiramente únicos."
           />
-          <Button href="/para-arquitetos" variant="secondary" size="lg">
-            Conheça nosso programa para parceiros
+          <Button href={site.cta.href} variant="secondary" size="lg">
+            {site.cta.short}
           </Button>
         </div>
         <div data-parallax className="aspect-[4/3] overflow-hidden rounded-md shadow-lg">

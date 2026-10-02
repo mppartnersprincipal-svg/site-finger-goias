@@ -1,8 +1,6 @@
-import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  pageExtensions: ["ts", "tsx", "mdx"],
   // Há um package-lock.json solto em C:\Users\User; fixa a raiz do workspace neste projeto.
   turbopack: { root: process.cwd() },
   async headers() {
@@ -17,4 +15,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default createMDX({})(nextConfig);
+export default nextConfig;

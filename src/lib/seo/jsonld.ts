@@ -40,17 +40,3 @@ export function breadcrumbLd(trail: { name: string; path: string }[]) {
     })),
   };
 }
-
-export function articleLd(post: { title: string; description: string; slug: string; date: string; image: string }) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.description,
-    datePublished: post.date,
-    image: abs(post.image),
-    mainEntityOfPage: abs(`/blog/${post.slug}`),
-    author: { "@type": "Organization", name: site.name },
-    publisher: { "@id": abs("/#loja") },
-  };
-}

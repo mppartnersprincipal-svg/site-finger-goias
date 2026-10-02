@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Pipeline de vídeo (Git Bash + ffmpeg). Lê os brutos fora do repo e grava em public/media/video.
-# Uso: bash scripts/media/build-videos.sh [hero-mobile|hero-desktop|reels|loops|sobre|stills|all]
+# Uso: bash scripts/media/build-videos.sh [hero-mobile|hero-desktop|reels|loops|sobre|luiz|stills|all]
 set -euo pipefail
 
 HERE="$(cd "$(dirname "$0")" && pwd)"
@@ -13,6 +13,7 @@ mkdir -p "$OUT" "$TMP" "$STILLS"
 
 FABRICA="$RAW/Video Heroe/04_Finger 2024 - Fábrica.mp4"
 INSTA="$(ls "$RAW/Video Heroe/"SnapInsta*.mp4)"
+LUIZ="$(ls "$RAW/Video Luiz/"*.mp4 | head -1)"
 NEST="$RAW/Empreendimentos Feitos/Nest 23-20260918T153900Z-1-001/Nest 23/Takes/Takes Multi Shot"
 LODGE="$RAW/Empreendimentos Feitos/Lodge Vaca Brava-20260918T153840Z-1-001/Lodge Vaca Brava"
 GOURMET="$RAW/Empreendimentos Feitos/4 - Sousa Andrade T3-20260918T161544Z-1-001/4 - Sousa Andrade T3/2J4A7844-HDR.jpg"
@@ -107,6 +108,14 @@ sobre() {
   $FF -ss 27 -i "$INSTA" -frames:v 1 "$STILLS/institucional-poster.png"
 }
 
+luiz() {
+  # Depoimento do Luiz (Finger Goiás), vertical com fala. Corta o cartão de logo que entra em ~108.7 s.
+  $FF -i "$LUIZ" -t 108.6 -vf "fade=t=out:st=108.0:d=0.6,format=yuv420p" -af "afade=t=out:st=108.0:d=0.6" \
+    -c:v libx264 -profile:v high -preset slow -crf 28 -maxrate 1000k -bufsize 2000k \
+    -c:a aac -b:a 96k -movflags +faststart "$OUT/luiz-finger-goias.mp4"
+  $FF -ss 49 -i "$LUIZ" -frames:v 1 "$STILLS/luiz-poster.png"
+}
+
 stills() {
   still() { $FF -ss "$1" -i "$FABRICA" -frames:v 1 -vf "$CROP_FAB" "$STILLS/fabrica-$2.png"; }
   still 7.3 drone; still 44 cnc; still 64.5 mao; still 69.2 mdf; still 75 palhinha; still 96.5 showroom
@@ -114,8 +123,8 @@ stills() {
 
 case "${1:-all}" in
   hero-mobile) hero_mobile ;; hero-desktop) hero_desktop ;; reels) reels ;;
-  loops) loops ;; sobre) sobre ;; stills) stills ;;
-  all) stills; hero_mobile; hero_desktop; reels; loops; sobre ;;
+  loops) loops ;; sobre) sobre ;; luiz) luiz ;; stills) stills ;;
+  all) stills; hero_mobile; hero_desktop; reels; loops; sobre; luiz ;;
   *) echo "alvo desconhecido: $1" >&2; exit 1 ;;
 esac
 

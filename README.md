@@ -20,7 +20,6 @@ bash scripts/lh.sh / home        # Lighthouse mobile de uma rota (precisa do ser
 |---|---|
 | Telefone/WhatsApp, endereço, menu, redes | `src/content/site.ts` |
 | Portfólio (projetos, fotos, categorias) | `src/content/projects.ts` |
-| Artigos do blog | `src/content/blog/*.mdx` + uma linha em `registry.ts` |
 | Tokens do Design System | `src/app/globals.css` (`@theme`) |
 | Medidas/peças do móvel 3D | `src/components/three/module-spec.mjs` |
 

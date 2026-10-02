@@ -21,8 +21,6 @@ export const site = {
     { label: "Ambientes", href: "/ambientes" },
     { label: "Sobre", href: "/sobre" },
     { label: "Como Funciona", href: "/como-funciona" },
-    { label: "Para Arquitetos", href: "/para-arquitetos" },
-    { label: "Blog", href: "/blog" },
   ],
 
   // Showroom de Goiás. Fonte: finger.ind.br/showrooms (HAUS DECOR, Instagram @fingergoias).
