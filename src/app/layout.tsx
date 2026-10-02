@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Open_Sans, Source_Serif_4 } from "next/font/google";
 import localFont from "next/font/local";
+import { BudgetDialog } from "@/components/forms/BudgetDialog";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <Footer />
         <WhatsAppFloat />
+        <BudgetDialog />
         <MotionProvider />
         <JsonLd data={storeLd()} />
         {/* Métricas sem cookies (só ativas em deploy na Vercel): dispensam banner de consentimento. */}

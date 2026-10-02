@@ -85,7 +85,8 @@ export function Navbar() {
         onClick={(event) => {
           if ((event.target as Element).closest("a[href]")) dialogRef.current?.close();
         }}
-        onClose={() => document.documentElement.classList.remove("dialog-open")}
+        // Um CTA do menu fecha este dialog e abre o do formulário: só destrava o scroll se nenhum outro ficou aberto.
+        onClose={() => !document.querySelector("dialog[open]") && document.documentElement.classList.remove("dialog-open")}
         aria-label="Menu"
         data-lenis-prevent
         className="menu-dialog m-0 h-dvh max-h-none w-screen max-w-none bg-neutral-floral text-dark-eerie backdrop:bg-transparent"

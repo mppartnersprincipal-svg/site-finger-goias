@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Clock, Factory, MapPin } from "lucide-react";
-import { WhatsAppForm, type FieldDef } from "@/components/forms/WhatsAppForm";
+import { BudgetNotice } from "@/components/forms/BudgetNotice";
+import { WhatsAppForm } from "@/components/forms/WhatsAppForm";
 import { Picture } from "@/components/media/Picture";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { Container, Section } from "@/components/ui/primitives";
+import { budget, budgetFields } from "@/content/budget";
 import { site } from "@/content/site";
 import { breadcrumbLd } from "@/lib/seo/jsonld";
 
@@ -14,32 +16,6 @@ export const metadata: Metadata = {
     "Dê o primeiro passo para transformar seu espaço. Preencha o formulário e fale pelo WhatsApp com um consultor da Finger em Goiânia.",
   alternates: { canonical: "/orcamento" },
 };
-
-const fields: FieldDef[] = [
-  { name: "nome", label: "Nome completo", type: "text", required: true, autoComplete: "name", wide: true },
-  { name: "email", label: "E-mail", type: "email", required: true, autoComplete: "email" },
-  { name: "telefone", label: "Telefone / WhatsApp", type: "tel", required: true, autoComplete: "tel", placeholder: "(62) 90000-0000" },
-  {
-    name: "ambientes",
-    label: "Ambientes que deseja projetar",
-    type: "chips",
-    required: true,
-    options: ["Cozinha", "Dormitório", "Sala", "Closet", "Banheiro", "Residência Completa", "Corporativo"],
-  },
-  {
-    name: "metragem",
-    label: "Metragem aproximada",
-    type: "text",
-    placeholder: "Ex.: 85 m²",
-    hint: "Tem a planta? Você pode enviá-la na conversa do WhatsApp.",
-  },
-  {
-    name: "prazo",
-    label: "Prazo estimado para execução",
-    type: "select",
-    options: ["O quanto antes", "Em até 3 meses", "De 3 a 6 meses", "Mais de 6 meses", "Ainda não sei"],
-  },
-];
 
 const InfoBlock = ({ icon: Icon, title, children }: { icon: typeof MapPin; title: string; children: React.ReactNode }) => (
   <div className="flex gap-4">
@@ -64,13 +40,9 @@ export default function OrcamentoPage() {
       />
 
       <Container className="grid gap-16 pb-section lg:grid-cols-[1.4fr_1fr] lg:gap-20">
-        <div data-hide-wa>
-          <WhatsAppForm
-            intro="Olá! Gostaria de solicitar um projeto personalizado com a Finger."
-            phone={showroom.whatsapp}
-            fields={fields}
-            submitLabel="Solicitar atendimento personalizado"
-          />
+        <div data-hide-wa className="flex flex-col gap-8">
+          <BudgetNotice />
+          <WhatsAppForm intro={budget.intro} phone={showroom.whatsapp} fields={budgetFields} submitLabel={budget.submitLabel} />
         </div>
 
         <aside aria-label="Informações institucionais e showroom" className="flex flex-col gap-8">

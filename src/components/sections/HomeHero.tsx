@@ -1,6 +1,7 @@
 import { HeroVideo } from "@/components/media/HeroVideo";
 import { Button } from "@/components/ui/Button";
 import { Accent, Container, Eyebrow } from "@/components/ui/primitives";
+import { site } from "@/content/site";
 import { fallbackSrc, media, srcSet } from "@/lib/media";
 
 const rise = (i: number) => ({ "--i": i }) as React.CSSProperties;
@@ -46,8 +47,8 @@ export function HomeHero() {
             bem-estar.
           </p>
           <div className="hero-rise flex w-full flex-col gap-3 sm:w-auto sm:flex-row" style={rise(3)}>
-            <Button href="/orcamento" size="lg" className="max-sm:px-5">
-              Solicite seu projeto personalizado
+            <Button href={site.cta.href} size="lg" className="max-sm:px-5">
+              {site.cta.label}
             </Button>
             <Button href="/ambientes" variant="inverse" size="lg">
               Explore nossos ambientes

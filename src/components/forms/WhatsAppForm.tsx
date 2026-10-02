@@ -9,7 +9,7 @@ import { buildWhatsAppMessage, buildWhatsAppUrl, type WhatsAppField } from "@/li
 export type FieldDef = {
   name: string;
   label: string;
-  type: "text" | "email" | "tel" | "select" | "chips";
+  type: "text" | "email" | "tel" | "select" | "chips" | "textarea" | "consent";
   required?: boolean;
   options?: string[];
   autoComplete?: string;
@@ -17,6 +17,9 @@ export type FieldDef = {
   hint?: string;
   /** Ocupa a linha inteira no grid de duas colunas. */
   wide?: boolean;
+  /** "consent": frase ao lado da caixa de seleção e o valor que vai para a mensagem quando marcada. */
+  consentText?: string;
+  consentValue?: string;
 };
 
 type Props = {
@@ -107,6 +110,29 @@ export function WhatsAppForm({ intro, phone, fields, submitLabel, tone = "light"
           <span className={cn("font-normal", dark ? "text-neutral-floral/60" : "text-dark-olive/80")}> (opcional)</span>
         );
 
+        if (field.type === "consent") {
+          const consentValue = field.consentValue ?? "Sim";
+          return (
+            <div key={field.name} className="sm:col-span-2">
+              <label htmlFor={id} className="flex cursor-pointer items-start gap-3">
+                <input
+                  id={id}
+                  type="checkbox"
+                  name={field.name}
+                  value={consentValue}
+                  required={field.required}
+                  defaultChecked={answer === consentValue}
+                  className="mt-0.5 size-5 shrink-0 cursor-pointer accent-primary-flame"
+                />
+                <span className={dark ? "text-neutral-floral/90" : "text-dark-eerie"}>
+                  {field.consentText ?? field.label}
+                  {field.required && <span aria-hidden className="text-primary-flame"> *</span>}
+                </span>
+              </label>
+            </div>
+          );
+        }
+
         if (field.type === "chips") {
           const invalid = chipError === field.name;
           return (
@@ -157,6 +183,17 @@ export function WhatsAppForm({ intro, phone, fields, submitLabel, tone = "light"
                   </option>
                 ))}
               </select>
+            ) : field.type === "textarea" ? (
+              <textarea
+                id={id}
+                name={field.name}
+                rows={3}
+                defaultValue={typeof answer === "string" ? answer : ""}
+                required={field.required}
+                placeholder={field.placeholder}
+                aria-describedby={field.hint ? `${id}-dica` : undefined}
+                className={cn(control, borders, "resize-y py-3")}
+              />
             ) : (
               <input
                 id={id}

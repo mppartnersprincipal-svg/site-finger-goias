@@ -12,7 +12,9 @@
    uso comercial).
 4. **Política de privacidade**: o texto descreve o funcionamento real do site, mas precisa de revisão
    do responsável jurídico/LGPD (controlador, encarregado, contato).
-5. **Aprovação das correções feitas na copy** ("a convivência", remoção dos marcadores `[n]`).
+5. **Texto da taxa de R$ 400** do pop-up de orçamento (`src/content/budget.ts`): confirmar o que ela
+   cobre, se é abatida no fechamento do contrato e como é paga. Hoje o texto diz só que é cobrada.
+6. **Aprovação das correções feitas na copy** ("a convivência", remoção dos marcadores `[n]`).
 
 Em 18/09/2026, o responsável confirmou que ainda não tem WhatsApp definitivo, horário do showroom
 e domínio. Esses dados continuam pendentes; nenhuma publicação foi realizada nesta revisão.

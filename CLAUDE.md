@@ -30,6 +30,7 @@ CTAs**; `Design System/` manda no **visual**. Em conflito entre os dois, vale es
 | Animações (Lenis, reveals, parallax, transição, cursor) | `src/components/motion/MotionProvider.tsx` |
 | Móvel 3D: peças e medidas / cena / gatilho de scroll | `src/components/three/module-spec.mjs` / `FurnitureScene.ts` / `FurnitureCanvas.tsx` |
 | Formulários → mensagem do WhatsApp | `src/components/forms/WhatsAppForm.tsx`, `src/lib/whatsapp.ts` |
+| Pop-up de orçamento (todo link para `/orcamento` abre ele), perguntas e taxa | `src/components/forms/BudgetDialog.tsx`, `src/content/budget.ts`, `src/lib/budget-link.ts` |
 | JSON-LD, sitemap, robots | `src/lib/seo/jsonld.ts`, `src/app/sitemap.ts`, `robots.ts` |
 
 ## Comandos
@@ -82,3 +83,12 @@ Mídia: os brutos (1,5 GB) ficam em `../` e **nunca entram no repo**. Foto nova 
 - Git Bash no Windows: não há `bc` (usar `awk`); nunca editar um `.sh` enquanto ele roda; heredocs
   grandes com aspas falham — criar arquivos com a ferramenta de escrita.
 - `.sh` e `.mjs` têm `eol=lf` no `.gitattributes`; não remover.
+
+## Histórico (1 linha por entrega — acrescentar a cada commit relevante)
+
+- 18/09/2026 — Site completo: 5 páginas da copy + Blog/Para Arquitetos, 3D procedural, GSAP/Lenis, formulários → WhatsApp, SEO/JSON-LD, LCP mobile ≤ 3 s, Lighthouse a11y/BP/SEO 100.
+- 20/09/2026 — Todos os botões em pílula; flutuante circular verde com glifo oficial do WhatsApp (exceções ao DS pedidas pelo cliente).
+- 20/09/2026 — Home: cards Área Gourmet e Banheiros; correção do scroll horizontal da galeria.
+- 20/09/2026 — Como Funciona, passo 01: foto da mesa do showroom com a planta sobreposta.
+- 02/10/2026 — Removidos Blog e Para Arquitetos (e o MDX); Sobre ganhou o vídeo vertical do Luiz Feresin (dono da Finger Goiás).
+- 02/10/2026 — Pop-up de orçamento: todo link para `/orcamento` abre o formulário com aviso da taxa de R$ 400 e confirmação obrigatória, enviando para o WhatsApp. Texto da taxa aguardando confirmação do Luiz (PENDENCIAS.md).
